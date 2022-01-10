@@ -6,22 +6,10 @@
 
 export default {
   name: 'App',
-  mounted () {
-    this.log()
-  },
-  methods: {
-    async log () {
-      let httpRequest = new XMLHttpRequest()
-      if (httpRequest) {
-        httpRequest.open('POST', `https://us-central1-portfolio-916df.cloudfunctions.net/ping?page=${this.$route.path}`)
-        httpRequest.send()
-      }
-    }
-  },
   watch: {
     $route (to, from) {
-      if (to.path !== from.path) {
-        this.log()
+      if (to.path !== from.path && window && window.plausible) {
+        window.plausible('pageview', { u: to.path })
       }
     }
   }
