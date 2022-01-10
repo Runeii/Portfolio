@@ -33,7 +33,6 @@
 @function vr($multiple) {
   @return calc((#{$font-size} * #{$line-height}) * #{$multiple});
 }
-$vr: #{$font-size} * #{$line-height};
 
 @mixin target_ie11 () {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

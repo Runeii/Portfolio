@@ -26,7 +26,7 @@ $bg-color: #141414;
 $text-color: rgb(255, 255, 255);
 
 @mixin h2 {
-  font-size: $font-size * $line-height;
+  font-size: calc(#{$font-size * $line-height});
 }
 @mixin h3 {
   font-size: $font-size;

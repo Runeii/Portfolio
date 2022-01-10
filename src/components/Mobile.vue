@@ -115,7 +115,7 @@ export default {
       height: 100%;
       margin-bottom: 0;
       opacity: 0;
-      transform: translateX(calc(-50% + #{$vr}));
+      transform: translateX(calc(-50% + (vr(1))));
       transition: all 300ms ease-in;
       @for $i from 1 through 8 {
         &:nth-child(#{$i + 1}) {
