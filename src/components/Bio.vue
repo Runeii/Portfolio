@@ -1,7 +1,6 @@
 <template>
   <div class="bio">
-    <p class="bio__paragraph">Andrew is an English developer based in Amsterdam.</p>
-    <p class="bio__paragraph">Currently Senior Developer for <a href="https://random.studio/">Random Studio</a>.</p>
+    <p class="bio__paragraph">Andrew is a Creative Technologist based in Amsterdam.</p>
     <div class="bio__contact">
       <div class="bio__contact-heading">Get in touch:</div>
       <a class="bio__link" href="mailto:contact@andrewthomashill.co.uk">English</a> /
