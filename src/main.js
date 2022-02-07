@@ -11,6 +11,7 @@ Vue.config.productionTip = false
 
 window.transition = 'appear'
 
+return true;
 new Vue({
   router,
   render: h => h(App)
