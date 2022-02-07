@@ -3,8 +3,6 @@
     <div class="home test index-leave-active index-leave-t">
       <Nav class="home__nav" />
       <Bio class="home__bio"/>
-      <NowPlaying class="home__np"/>
-      <Works class="home__works"/>
     </div>
   </transition>
 </template>
