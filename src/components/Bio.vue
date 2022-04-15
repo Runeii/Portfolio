@@ -1,11 +1,12 @@
 <template>
   <div class="bio">
     <p class="bio__paragraph">Andrew is a Creative Technologist based in Amsterdam.</p>
+    <p class="bio__paragraph">This site is now very empty, updating in <a href="https://github.com/Runeii/Portfolio/tree/2018">@next</a>.</p>
     <div class="bio__contact">
       <div class="bio__contact-heading">Get in touch:</div>
       <a class="bio__link" href="mailto:contact@andrewthomashill.co.uk">English</a> /
       <a class="bio__link" href="mailto:contact@andrewthomashill.co.uk? title=En%20Español">Español</a> /
-      <a class="bio__link" href="https://github.com/fightwithcrayon" target="_blank" rel="noopener">GitHub</a>
+      <a class="bio__link" href="https://github.com/runeii" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </template>
