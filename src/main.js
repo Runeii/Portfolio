@@ -1,17 +1,7 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import VueObserveVisibility from 'vue-observe-visibility'
+import App from './App.svelte';
 
-Vue.use(VueObserveVisibility)
+const app = new App({
+	target: document.body
+});
 
-require('intersection-observer')
-
-Vue.config.productionTip = false
-
-window.transition = 'appear'
-
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+export default app;
