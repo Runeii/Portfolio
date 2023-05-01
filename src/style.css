@@ -1,0 +1,101 @@
+@font-face {
+  font-family: Soehne;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: normal;
+  src: url("/fonts/soehne-buch.woff2");
+}
+@font-face {
+  font-family: Soehne;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("/fonts/soehne-leicht.woff2");
+}
+
+:root {
+  --text: lab(1.01 1.21 0.9);
+  --background: lab(96.68% -0.35 -1.07);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: lab(96.68% -0.35 -1.07);
+    --background: lab(1.01 1.21 0.9);
+  }
+}
+
+* {
+  padding: unset;
+  margin: unset;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto 300px;
+  grid-template-rows: 100%;
+  color: var(--text);
+  padding: 24px 12px 12px;
+  background-color: var(--background);
+}
+
+@media (orientation: portrait) {
+  body {
+    grid-template-columns: 100vw;
+  }
+  aside {
+    display: none;
+  }
+  main {
+    grid-columns: 1 / 2;
+  }
+}
+
+p,
+h1,
+li {
+  font-size: 16px;
+  font-family: Soehne, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  opacity: 0.8;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p,
+ul,
+h1 {
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h1 a {
+  color: inherit;
+  margin-left: 4px;
+}
+
+li a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+li a:hover {
+  opacity: 1;
+}
+
+aside {
+  grid-columns: 1 / 2;
+}
+
+main {
+  height: 100%;
+  grid-columns: 2 / 3;
+}
