@@ -67,9 +67,12 @@ li {
 }
 
 p,
-ul,
 h1 {
   margin-bottom: 1em;
+}
+
+ul {
+  margin-bottom: 2em;
 }
 
 h1 {
