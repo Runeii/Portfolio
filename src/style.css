@@ -6,6 +6,7 @@
   font-stretch: normal;
   src: url("/fonts/soehne-buch.woff2");
 }
+/*
 @font-face {
   font-family: Soehne;
   font-weight: 200;
@@ -14,7 +15,7 @@
   font-display: swap;
   src: url("/fonts/soehne-leicht.woff2");
 }
-
+*/
 :root {
   --text: lab(1.01 1.21 0.9);
   --background: lab(96.68% -0.35 -1.07);
