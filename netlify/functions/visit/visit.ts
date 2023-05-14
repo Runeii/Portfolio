@@ -1,9 +1,13 @@
 import { Handler } from '@netlify/functions'
 
 export const handler: Handler = async (event, context) => {
-  const { path } = event.queryStringParameters ?? {}
+  // Korean handily uses YY/MM//DD
+  const time = new Intl.DateTimeFormat('en-GB', {
+    dateStyle: 'short',
+    timeStyle: 'medium',
+  }).format(Date.now());
 
-  console.log("Visit::", { ip: event.headers['client-ip'], path, time: Date.now() });
+  console.log("Visit::", { ...event.queryStringParameters, ip: event.headers['client-ip'], time });
 
   return {
     statusCode: 200,
