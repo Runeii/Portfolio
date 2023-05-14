@@ -63,7 +63,7 @@
       </li>
     </ul>
     <noscript>
-      <img src="http://localhost:9999/.netlify/functions/visit?nojs=true&path=/"
+      <img src="https://www.andrewthomashill.co.uk/.netlify/functions/visit?nojs=true&path=/"
         style="visibility: hidden; position: absolute;bottom: -999px;right: -999px" />
     </noscript>
   </main>
@@ -71,9 +71,9 @@
     document.addEventListener('DOMContentLoaded', () => {
       window.id = Math.random().toString(36);
       document.querySelectorAll('a').forEach(el => el.addEventListener('click', () => {
-        fetch(`http://localhost:9999/.netlify/functions/visit?path=${el.href}&type=click&id=${window.id}"`)
+        fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?path=${el.href}&type=click&id=${window.id}"`)
       }));
-      fetch(`http://localhost:9999/.netlify/functions/visit?path=/&type=load&id=${window.id}"`);
+      fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?path=/&type=load&id=${window.id}"`);
     }, false);
   </script>
 </body>
