@@ -4,8 +4,8 @@ export default async (req: Request) => {
   const promptsStore = getStore('visits');
   const url = new URL(req.url);
 
-  const id = Date.now().toString();
-  await promptsStore.setJSON(id, {
+  const date = new Date()
+  await promptsStore.setJSON(date.toUTCString(), {
     visitor_id: url.searchParams.get('id'),
     path: url.searchParams.get('path'),
     action: url.searchParams.get('type'),
