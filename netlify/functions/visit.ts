@@ -18,8 +18,6 @@ const writeToSheet = async (data: any) => {
 export default async (req: Request) => {
   const url = new URL(req.url);
 
-  const target = url.searchParams.get('target');
-
   await writeToSheet({
     date: new Date(),
     ip: req.headers.get('cf-connecting-ip'),
