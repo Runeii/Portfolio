@@ -75,12 +75,15 @@
       </li>
     </ul>
   </main>
-  <img src="/.netlify/functions/visit?type=load" alt="">
+  <noscript>
+    <img src="/.netlify/functions/visit?type=nojs" alt="">
+  </noscript>
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('a').forEach(el => el.addEventListener('click', () => {
         fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?target=${el.href}&type=click`)
       }));
+      fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?type=load`);
     }, false);
   </script>
 </body>
