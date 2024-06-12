@@ -53,7 +53,7 @@ main {
 
 @media (orientation: portrait) {
   body {
-    grid-template-columns: 100vw;
+    grid-template-columns: 100%;
   }
   main {
     grid-column: 1 / 2;
