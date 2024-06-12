@@ -79,7 +79,7 @@
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('a').forEach(el => el.addEventListener('click', () => {
-        fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?path=${el.href}&type=click"`)
+        fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?target=${el.href}&type=click`)
       }));
     }, false);
   </script>

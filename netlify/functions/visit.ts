@@ -24,7 +24,7 @@ export default async (req: Request) => {
   await writeToSheet({
     date: new Date(),
     ip: req.headers.get('cf-connecting-ip'),
-    path: url.searchParams.get('path') ?? '/',
+    target: url.searchParams.get('target') ?? undefined,
     action: url.searchParams.get('type'),
     country: req.headers.get('cf-ipcountry'),
     type: url.searchParams.get('type'),
