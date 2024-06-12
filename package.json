@@ -4,12 +4,19 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "dev": "cd src && nodemon --exec 'python3 -m http.server 8080'"
+    "dev": "nodemon --exec 'cd src && python3 -m http.server 8080'"
+  },
+  "nodemonConfig": {
+    "ext": "css,html,woff2",
+    "watch": [
+      "src"
+    ]
   },
   "dependencies": {
-    "@netlify/blobs": "^7.3.0",
+    "@netlify/blobs": "7.3.0",
     "@netlify/functions": "1.6.0",
     "@types/node": "14.18.47",
+    "google-spreadsheet": "3.3.0",
     "node-fetch": "3.3.1",
     "nodemon": "2.0.22",
     "typescript": "4.9.5"
