@@ -24,6 +24,7 @@ export default async (req: Request) => {
     target: url.searchParams.get('target') ?? undefined,
     country: req.headers.get('cf-ipcountry'),
     type: url.searchParams.get('type'),
+    referrer: url.searchParams.get('referrer') ?? undefined,
   })
 
   return new Response(JSON.stringify(

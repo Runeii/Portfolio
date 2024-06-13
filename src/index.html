@@ -23,14 +23,6 @@
     <ul>
       <li><a href="mailto:portfolio@andrewthomashill.co.uk" target="_blank">Get in touch</a></li>
     </ul>
-    <h2>Elsewhere Online</h2>
-    <ul>
-      <li>
-        <a href="https://www.nightowlsjackpot.com/" target="_blank">
-          Night Owls Jackpot
-        </a>
-      </li>
-    </ul>
     <h2>Previous</h2>
     <ul>
       <li>
@@ -90,7 +82,7 @@
       document.querySelectorAll('a').forEach(el => el.addEventListener('click', () => {
         fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?type=click&target=${el.href}`)
       }));
-      fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?type=load`);
+      fetch(`https://www.andrewthomashill.co.uk/.netlify/functions/visit?type=load&referrer=${document.referrer}`);
     }, false);
   </script>
 </body>
