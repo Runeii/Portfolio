@@ -1,6 +1,9 @@
 ---
-import projectsJson from '../data/projects.json';
-const projects: typeof projectsJson = projectsJson;
+import Projects from '../components/Projects';
+import { projects } from '../data/projects';
+
+const digital = projects.filter((project) => project.isDigital);
+const physical = projects.filter((project) => project.isPhysical);
 ---
 
 <html lang="en">
@@ -12,36 +15,63 @@ const projects: typeof projectsJson = projectsJson;
 		<title>Andrew Hill – Portfolio</title>
 	</head>
 	<body>
-		<h1>Andrew Thomas Hill</h1>
-    <main class="projects">
-      {projects.map(project => (
-        <article>
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          <p class="year">{project.year}</p>
-        </article>
-      ))}
-    </main>
+    <div class="bio">
+      <h1>Andrew Thomas Hill</h1>
+      <p>Creative Developer</p>
+      <a href="mailto:contact@andrewthomashill.co.uk">Email</a>
+    </div>
+    <Projects client:visible projects={physical} />
+    <Projects client:visible isDigital projects={digital} />
 	</body>
 </html>
 
 <style>
-  .projects {
-    display: flex;
-    flex-direction: column;
-  
-    article {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-  
-    p {
-      margin: 0;
-    }
-  
-    .year {
-      margin-left: auto;
+  @font-face {
+    font-family: 'Acumin Pro';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Acumin Pro'), url('/fonts/Acumin-RPro.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Acumin Pro';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Acumin Pro Italic'), url('/fonts/Acumin-ItPro.woff') format('woff');
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings:
+      "kern" 1,
+      "ss01" 1,
+      "liga",
+      "clig";
+    font-optical-sizing: auto;
+    font-variant-ligatures: common-ligatures;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.0125em;
+    -webkit-hyphenate-character: "-";
+    text-rendering: optimizeLegibility;
+    font-family: "Acumin Pro", Papyrus, sans-serif;
+    font-size: 62.5%;
+  }
+
+  .bio {
+    height: 33vh;
+    padding: 2rem 1rem;
+    font-size: 1.5rem;
+
+    h1, p, a {
+      font-weight: inherit;
+      font-size: inherit;
+      margin: 0 0 0.5em;
+      text-underline-offset: 0.2em;
+      color: inherit;
     }
   }
 </style>
