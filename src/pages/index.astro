@@ -1,0 +1,47 @@
+---
+import projectsJson from '../data/projects.json';
+const projects: typeof projectsJson = projectsJson;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Andrew Hill – Portfolio</title>
+	</head>
+	<body>
+		<h1>Andrew Thomas Hill</h1>
+    <main class="projects">
+      {projects.map(project => (
+        <article>
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <p class="year">{project.year}</p>
+        </article>
+      ))}
+    </main>
+	</body>
+</html>
+
+<style>
+  .projects {
+    display: flex;
+    flex-direction: column;
+  
+    article {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    p {
+      margin: 0;
+    }
+  
+    .year {
+      margin-left: auto;
+    }
+  }
+</style>
