@@ -28,8 +28,8 @@ const physical = sortedProjects.filter((project) => project.isPhysical);
       <p>Creative Developer</p>
       <a href="mailto:contact@andrewthomashill.co.uk">Email</a>
     </div>
-    <Projects client:load isDigital projects={digital} />
-    <Projects client:load projects={physical} />
+    <Projects isDigital projects={digital} />
+    <Projects projects={physical} />
     <TheRear client:idle />
 	</body>
 </html>

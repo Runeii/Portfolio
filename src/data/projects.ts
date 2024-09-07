@@ -123,7 +123,7 @@ export const projects: JsonProject[] = [
   },
   {
     title: "Marshmallow Toasting",
-    description: "Ad hoc",
+    description: "Various",
     link: 'https://github.com/RandomStudio/marshmallow-toasting',
     date: '2021-01-01',
     isDigital: false,
@@ -131,7 +131,7 @@ export const projects: JsonProject[] = [
   },
   {
     title: "Laser Cave Painting",
-    description: "Ad hoc",
+    description: "Various",
     link: 'https://github.com/RandomStudio/Laser-Pointer-Painting',
     date: '2021-01-01',
     isDigital: false,
@@ -163,7 +163,7 @@ export const projects: JsonProject[] = [
   },
   {
     title: "Black Eye Project",
-    description: "Website for a Sheffield design studio",
+    description: "Website for a design studio",
     link: 'https://theblackeyeproject.co.uk/',
     date: '2018-01-01',
     niceDate: '2017-2019',
