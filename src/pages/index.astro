@@ -1,6 +1,5 @@
 ---
 import Projects from '../components/Projects.astro';
-import TheRear from '../components/TheRear';
 import { type Project, projects } from '../data/projects';
 
 const sortedProjects = projects.map(project => ({
@@ -30,7 +29,6 @@ const physical = sortedProjects.filter((project) => project.isPhysical);
     </div>
     <Projects isDigital projects={digital} />
     <Projects projects={physical} />
-    <TheRear client:idle />
 	</body>
 </html>
 
