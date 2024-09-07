@@ -172,7 +172,7 @@ export const projects: JsonProject[] = [
   },
   {
     title: "Cambridge University",
-    description: "Notepad for a new commission",
+    description: "Design scratchpad for a new statue",
     link: "https://simontegala-flow.org/",
     date: '2018-01-01',
     isDigital: true,
