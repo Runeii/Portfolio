@@ -14,5 +14,9 @@
     "@astrojs/preact": "^3.5.2",
     "astro": "^4.15.3",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "postcss-mixins": "^10.0.1",
+    "postcss-preset-env": "^10.0.2"
   }
 }

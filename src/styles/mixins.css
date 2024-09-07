@@ -1,0 +1,13 @@
+@define-mixin mobile-friendly-hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @mixin-content;
+    }
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    &:active {
+      @mixin-content;
+    }
+  }
+}

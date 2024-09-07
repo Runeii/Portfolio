@@ -1,276 +1,214 @@
 export type Project = {
-  name: string;
-  for: string;
-  summary: string;
-  link?: string;
-  source?: string;
-  caseStudy?: string;
-  year: number;
-  role: string;
+  title: string;
+  description: string;
+  link: string | undefined;
+  date: Date;
   niceDate?: string;
   isDigital: boolean;
   isPhysical: boolean;
+  isNDAed?: boolean;
 };
 
-export const projects: Project[] = [
+type JsonProject = Omit<Project, 'date'> & {
+  date: string;
+};
+
+export const projects: JsonProject[] = [
   {
-    name: 'High Pertinent',
-    for: 'High Pertinent',
-    summary: 'Website',
-    link: 'https://highpertinent.com',
-    source: "https://github.com/runeii/highpertinent",
-    year: 2024,
-    role: "n/a",
+    title: 'High Pertinent',
+    description: 'The corporation that runs the future',
+    link: 'https://github.com/runeii/highpertinent',
+    date: '2024-01-01',
     isDigital: true,
     isPhysical: false
   },
   {
-    for: "Open Source",
-    name: "Wipeout Music Visualizer",
-    summary: "Retro GL Music Visualizer",
-    year: 2024,
-    link: "",
-    source: "https://github.com/runeii/audiovisualizer",
-    role: "n/a",
+    title: "Wipeout Music Visualizer",
+    description: "Recontextualising the 90s PSX classic",
+    link: "https://github.com/runeii/audiovisualizer",
+    date: '2024-01-01',
     isDigital: true,
     isPhysical: false
   },
   {
-    for: "Open Source",
-    name: "R3F Touch Controller",
-    year: 2024,
-    summary: "Remote interface",
-    link: "",
-    source: "https://github.com/Runeii/r3f-touch-controller",
-    role: "n/a",
+    title: "R3F Touch Controller",
+    description: "Experimental human input device",
+    link: "https://github.com/Runeii/r3f-touch-controller",
+    date: '2024-01-01',
     isDigital: true,
     isPhysical: false
   },
   {
-    for: "Open Source",
-    name: "Obscura Maps",
-    summary: "Atlas Obscura utility",
-    year: 2024,
-    link: "",
-    role: "n/a",
-    source: "https://github.com/Runeii/obscura-maps",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Crack in the Road",
-    name: "Crack in the Road",
-    summary: "A music blog",
-    year: 2017,
-    niceDate: "2010-2017",
-    link: "",
-    role: "Founder",
-    source: "https://github.com/Runeii/crackintheroad",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Unrecorded",
-    name: "Unrecorded",
-    summary: "Static web site",
-    year: 2014,
-    link: "",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Living Lab (Het Hem)",
-    name: "Living Entrance",
-    summary: "Installation",
-    caseStudy: "https://random.studio/projects/the-entrance",
-    year: 2024,
-    role: "Developer",
-    isDigital: true,
-    isPhysical: true
-  },
-  {
-    for: "Random Studio",
-    name: "Marshmallow Toasting",
-    year: 2021,
-    summary: "Installation",
-    link: "",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: true
-  },
-  {
-    for: "Random Studio",
-    name: "Laser Cave Painting",
-    summary: "Installation",
-    year: 2021,
-    link: "",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: true
-  },
-  {
-    for: "Black Eye Project",
-    name: "Black Eye Project",
-    summary: "Website",
-    year: 2018,
-    link: "",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Sheffield BID",
-    name: "Lego Bricktropolis",
-    summary: "Augmented Reality App",
-    year: 2019,
-    link: "",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Cambridge University",
-    name: "Simon Tegala",
-    summary: "Website",
-    year: 2018,
-    link: "https://simontegala-flow.org/",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Lifeskills",
-    name: "Lifeskills",
-    summary: "Website",
-    year: 2017,
-    link: "",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Global Brands",
-    name: "Crooked Brewing Company",
-    summary: "Website",
-    year: 2017,
-    link: "",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Karina Gobulenko",
-    name: "Karina Gobulenko",
-    summary: "Portfolio website",
-    year: 2024,
-    source: "https://github.com/Runeii/karinagolubenko",
-    link: "https://www.karinagolubenko.xyz/",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Mirka Laura Severa",
-    name: "Mirka Laura Severa",
-    summary: "Portfolio website",
-    year: 2024,
-    source: "https://github.com/Runeii/mirkalaurasevera-portfolio",
-    link: "https://www.mirkalaurasevera.com/",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Random Studio",
-    name: "Connected Office",
-    summary: "Installation",
-    year: 2023,
-    caseStudy: "https://random.studio/projects/our-dynamic-studio",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: true
-  },
-  {
-    for: "Random Studio",
-    name: "Random Studio",
-    summary: "Website",
-    year: 2019,
-    niceDate: "2019-24",
+    title: "Random Studio",
+    description: "Website for a design studio",
     link: "https://random.studio/",
-    role: "Developer",
+    date: '2024-01-01',
+    niceDate: '2020-2024',
     isDigital: true,
     isPhysical: false
   },
   {
-    for: "PVH",
-    name: "Store of the Future",
-    summary: "Global retail platform",
-    year: 2024,
-    niceDate: '2019-24',
-    role: "Lead Developer",
-    isDigital: true,
-    isPhysical: false
-  },
-  {
-    for: "Tommy Hillfiger",
-    name: "Kid's Machine",
-    summary: "Interactive retail fixture",
-    year: 2019,
-    caseStudy: "https://random.studio/projects/interactive-retail-fixture-for-tommy-hilfiger",
-    role: "Lead Developer",
-    isDigital: true,
+    title: "Living Entrance",
+    description: "Het Hem Museum",
+    link: "https://random.studio/projects/the-entrance",
+    date: '2024-01-01',
+    isDigital: false,
     isPhysical: true
   },
   {
-    for: "Chloé",
-    name: "SS20: A Season in Hope",
-    summary: "Campaign website",
-    link: "https://aseasoninhope-chloe.archive.random.studio/",
-    caseStudy: "https://random.studio/projects/a-ss21-collection-experience-for-chloe",
-    year: 2020,
-    role: "Developer",
+    title: "Karina Gobulenko",
+    description: "Portfolio of a UX designer",
+    link: "https://www.karinagolubenko.xyz/",
+    date: '2024-01-01',
     isDigital: true,
     isPhysical: false
   },
   {
-    for: "KRO NCRV",
-    name: "Rampvlucht",
-    summary: "WebGL experience",
+    title: "Mirka Laura Severa",
+    description: "Vibrant, playful, surreal photography",
+    link: "https://www.mirkalaurasevera.com/",
+    date: '2024-01-01',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "Store of the Future",
+    description: "",
+    link: undefined,
+    date: '2024-01-01',
+    niceDate: '2019-2024',
+    isNDAed: true,
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "BreathLab",
+    description: "Nike (Paris)",
+    link: 'https://random.studio/projects/a-sensorial-store-takeover-for-nike-house-of-innovation',
+    date: '2024-01-01',
+    isDigital: false,
+    isPhysical: true
+  },
+  {
+    title: "Connected Office",
+    description: "Random Studio",
+    link: "https://random.studio/projects/our-dynamic-studio",
+    date: '2023-01-01',
+    isDigital: false,
+    isPhysical: true
+  },
+  {
+    title: "Bridal Forest",
+    description: "Boucheron (Tokyo)",
+    link: "https://random.studio/projects/a-bridal-forest-for-boucheron",
+    date: '2023-01-01',
+    isDigital: false,
+    isPhysical: true
+  },
+  {
+    title: "Rampvlucht",
+    description: "Exploring the story of a Dutch disaster",
     link: "https://assets-rampvlucht.kro-ncrv.nl/digitale/index.html",
-    caseStudy: "https://random.studio/projects/rampvlucht",
-    year: 2022,
-    role: "Developer",
+    date: '2022-01-01',
     isDigital: true,
     isPhysical: false
   },
   {
-    for: "Boucheron (Tokyo)",
-    name: "Bridal Forest",
-    summary: "Installation",
-    year: 2023,
-    caseStudy: "https://random.studio/projects/a-bridal-forest-for-boucheron",
-    role: "Developer",
-    isDigital: true,
-    isPhysical: true
-  },
-  {
-    for: "August Getty",
-    name: "August Getty",
-    summary: "Website",
-    year: 2022,
-    role: "Developer",
+    title: "August Getty",
+    description: "Intricate high fashion atelier",
+    link: undefined,
+    date: '2022-01-01',
     isDigital: true,
     isPhysical: false
   },
   {
-    for: "Nike",
-    name: "Breath Lab",
-    summary: "Installation",
-    year: 2024,
-    role: "Consultant",
-    isDigital: true,
+    title: "Marshmallow Toasting",
+    description: "Ad hoc",
+    link: 'https://github.com/RandomStudio/marshmallow-toasting',
+    date: '2021-01-01',
+    isDigital: false,
     isPhysical: true
+  },
+  {
+    title: "Laser Cave Painting",
+    description: "Ad hoc",
+    link: 'https://github.com/RandomStudio/Laser-Pointer-Painting',
+    date: '2021-01-01',
+    isDigital: false,
+    isPhysical: true
+  },
+  {
+    title: "Chloé",
+    description: "SS20 A Season in Hope",
+    link: "https://aseasoninhope-chloe.archive.random.studio/",
+    date: '2020-01-01',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "Tommy Hillfiger",
+    description: "Kid's Machine",
+    link: "https://random.studio/projects/interactive-retail-fixture-for-tommy-hilfiger",
+    date: '2019-01-01',
+    isDigital: false,
+    isPhysical: true
+  },
+  {
+    title: "Lego Bricktropolis",
+    description: "A city-wide treasure hunt",
+    link: undefined,
+    date: '2019-01-01',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "Black Eye Project",
+    description: "Website for a Sheffield design studio",
+    link: 'https://theblackeyeproject.co.uk/',
+    date: '2018-01-01',
+    niceDate: '2017-2019',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "Cambridge University",
+    description: "Notepad for a new commission",
+    link: "https://simontegala-flow.org/",
+    date: '2018-01-01',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "Crack in the Road",
+    description: "Acclaimed 2010s music blog",
+    link: "https://github.com/Runeii/crackintheroad",
+    date: '2017-01-01',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "Lifeskills",
+    description: "Lifeskills",
+    link: undefined,
+    date: '2017-01-01',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "Crooked Brewing Company",
+    description: "Unconventional new drinks",
+    link: undefined,
+    date: '2017-01-01',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: "Unrecorded",
+    description: "Unrecorded",
+    link: undefined,
+    date: '2014-01-01',
+    isDigital: true,
+    isPhysical: false
   }
 ];
 

@@ -1,9 +1,17 @@
 ---
-import Projects from '../components/Projects';
-import { projects } from '../data/projects';
+import Projects from '../components/Projects.astro';
+import TheRear from '../components/TheRear';
+import { type Project, projects } from '../data/projects';
 
-const digital = projects.filter((project) => project.isDigital);
-const physical = projects.filter((project) => project.isPhysical);
+const sortedProjects = projects.map(project => ({
+  ...project,
+  date: new Date(project.date),
+}) as Project).sort((a,b) => b.date.getTime() - a.date.getTime());
+
+const digital = sortedProjects.filter((project) => project.isDigital)
+
+const physical = sortedProjects.filter((project) => project.isPhysical);
+
 ---
 
 <html lang="en">
@@ -20,8 +28,9 @@ const physical = projects.filter((project) => project.isPhysical);
       <p>Creative Developer</p>
       <a href="mailto:contact@andrewthomashill.co.uk">Email</a>
     </div>
-    <Projects client:visible projects={physical} />
-    <Projects client:visible isDigital projects={digital} />
+    <Projects client:load isDigital projects={digital} />
+    <Projects client:load projects={physical} />
+    <TheRear client:idle />
 	</body>
 </html>
 
@@ -38,6 +47,27 @@ const physical = projects.filter((project) => project.isPhysical);
     font-style: italic;
     font-weight: normal;
     src: local('Acumin Pro Italic'), url('/fonts/Acumin-ItPro.woff') format('woff');
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --background-color: 237 237 237;
+    --text-color: 34 34 34;
+  }
+
+  html {
+    font-size: 12px;
+
+    @media (min-width: 420px) {
+      font-size: 14px;
+    }
+
+    @media (min-width: 820px) {
+      font-size: 16px;
+    }
   }
 
   body {
@@ -59,11 +89,16 @@ const physical = projects.filter((project) => project.isPhysical);
     text-rendering: optimizeLegibility;
     font-family: "Acumin Pro", Papyrus, sans-serif;
     font-size: 62.5%;
+
+    background-color: var(--background-color);
+
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   .bio {
     height: 33vh;
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
     font-size: 1.5rem;
 
     h1, p, a {
