@@ -1,16 +1,4 @@
 ---
-import Projects from '../components/Projects.astro';
-import { type Project, projects } from '../data/projects';
-
-const sortedProjects = projects.map(project => ({
-  ...project,
-  date: new Date(project.date),
-}) as Project).sort((a,b) => b.date.getTime() - a.date.getTime());
-
-const digital = sortedProjects.filter((project) => project.isDigital)
-
-const physical = sortedProjects.filter((project) => project.isPhysical);
-
 ---
 
 <html lang="en">
@@ -19,17 +7,22 @@ const physical = sortedProjects.filter((project) => project.isPhysical);
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Andrew Hill – Portfolio</title>
+		<title>Tove – Portfolio</title>
     <script defer data-domain="andrewthomashill.co.uk" src="https://plausible.io/js/script.outbound-links.js"></script>
 	</head>
 	<body>
     <div class="bio">
-      <h1>Andrew Thomas Hill</h1>
-      <p>Creative Developer</p>
-      <a href="mailto:contact@andrewthomashill.co.uk">Email</a>
+      <h1>Tove</h1>
+      <p>Career: Dog</p>
+      <a href="mailto:tove@andrewthomashill.co.uk" class="email">Email</a>
     </div>
-    <Projects isDigital projects={digital} />
-    <Projects projects={physical} />
+    <div class="works">
+      <img src="/tove/1.jpeg" loading="lazy" />
+      <img src="/tove/2.jpeg" loading="lazy" />
+      <img src="/tove/3.jpeg" loading="lazy" />
+      <img src="/tove/4.JPG" loading="lazy" />
+      <img src="/tove/5.jpeg" loading="lazy" />
+    </div>
 	</body>
 </html>
 
@@ -120,5 +113,32 @@ const physical = sortedProjects.filter((project) => project.isPhysical);
       text-underline-offset: 0.2em;
       color: inherit;
     }
+
+
+    .email {
+      cursor: not-allowed;
+      text-decoration: none;
+
+      &::after {
+        content: "no i am a dog";
+        font-size: 0.75em;
+        font-style: italic;
+        margin-left: 0.5em;
+      }
+    }
   }
+
+  .works {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      margin: 1rem;
+    }
+  }
+  
 </style>
