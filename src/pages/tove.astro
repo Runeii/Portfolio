@@ -1,4 +1,65 @@
 ---
+import Projects from "../components/Projects.astro";
+import type { Project } from "../data/projects";
+
+const works: Project[] = [
+  {
+    title: "The French Hound",
+    description: "A classic of the genre",
+    date: new Date(),
+    link: "/tove/1.jpeg",
+    isDigital: false,
+    isPhysical: true,
+  },
+  {
+    title: "The Cyclist",
+    description: "Something of a basket case",
+    date: new Date(),
+    link: "/tove/2.jpeg",
+    isDigital: false,
+    isPhysical: true,
+  },
+  {
+    title: "Cone and Stick",
+    description: "Double humiliation",
+    date: new Date(),
+    link: "/tove/3.jpeg",
+    isDigital: false,
+    isPhysical: true,
+  },
+  {
+    title: "Office Dog",
+    description: "A classic of the genre",
+    date: new Date(),
+    link: "/tove/4.JPG",
+    isDigital: false,
+    isPhysical: true,
+  },
+  {
+    title: "Shower",
+    description: "Wet and ruffled",
+    date: new Date(),
+    link: "/tove/5.jpeg",
+    isDigital: false,
+    isPhysical: true,
+  },
+  {
+    title: "The Thief",
+    description: "Egg rustling",
+    date: new Date(),
+    link: "/tove/6.jpeg",
+    isDigital: false,
+    isPhysical: true,
+  },
+  {
+    title: "Liquid",
+    description: "Dog not Snake",
+    date: new Date(),
+    link: "/tove/7.jpeg",
+    isDigital: false,
+    isPhysical: true,
+  },
+];
 ---
 
 <html lang="en">
@@ -8,7 +69,11 @@
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Tove – Portfolio</title>
-    <script defer data-domain="andrewthomashill.co.uk" src="https://plausible.io/js/script.outbound-links.js"></script>
+    <script>
+      import { logClicks, logPageView } from '../utils.ts'
+      logPageView()
+      logClicks()
+    </script>
 	</head>
 	<body>
     <div class="bio">
@@ -16,13 +81,10 @@
       <p>Career: Dog</p>
       <a href="mailto:tove@andrewthomashill.co.uk" class="email">Email</a>
     </div>
-    <div class="works">
+    <div class="header">
       <img src="/tove/1.jpeg" loading="lazy" />
-      <img src="/tove/2.jpeg" loading="lazy" />
-      <img src="/tove/3.jpeg" loading="lazy" />
-      <img src="/tove/4.JPG" loading="lazy" />
-      <img src="/tove/5.jpeg" loading="lazy" />
     </div>
+    <Projects hasTitle={false} projects={works} />
 	</body>
 </html>
 
@@ -128,7 +190,7 @@
     }
   }
 
-  .works {
+  .header {
     display: flex;
     flex-direction: column;
     width: 100%;

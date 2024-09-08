@@ -20,7 +20,11 @@ const physical = sortedProjects.filter((project) => project.isPhysical);
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Andrew Hill – Portfolio</title>
-    <script defer data-domain="andrewthomashill.co.uk" src="https://plausible.io/js/script.outbound-links.js"></script>
+    <script>
+      import { logClicks, logPageView } from '../utils.ts'
+      logPageView()
+      logClicks()
+    </script>
 	</head>
 	<body>
     <div class="bio">

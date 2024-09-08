@@ -3,15 +3,16 @@ import { type Project } from '../data/projects';
 
 interface Props {
   isDigital?: boolean;
+  hasTitle?: boolean;
   projects: Project[];
 }
 
-const { isDigital, projects } = Astro.props;
+const { isDigital, hasTitle, projects } = Astro.props;
 
 ---
 
 <main class="projects">
-  <h2 class="heading">{isDigital ? 'Often digital' : 'Sometimes physical'}</h2>
+  {hasTitle !== false && <h2 class="heading">{isDigital ? 'Often digital' : 'Sometimes physical'}</h2>}
   {projects.filter(project => project.link || project.isNDAed).map((project) => {
     const className = `project ${project.isNDAed ? 'isNDAed' : ''}`;
 
