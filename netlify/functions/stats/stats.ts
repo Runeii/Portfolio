@@ -25,7 +25,7 @@ export const handler: Handler = async (event) => {
   }
 
   // Validate the required fields for Plausible event API
-  const { name, url, referrer, screen_width, props } = requestBody;
+  const { name, url, referrer, props } = requestBody;
 
   if (!name || !url) {
     return {
@@ -36,21 +36,26 @@ export const handler: Handler = async (event) => {
 
   // Construct the payload for Plausible
   const plausiblePayload = {
+    domain: 'andrewthomashill.co.uk',
     name,
     url,
-    domain: 'andrewthomashill.co.uk',
     referrer,
-    screen_width,
     props,
   };
 
+  const userAgent = event.headers['user-agent'];
+  const xForwardedFor = event.headers['x-forwarded-for'];
+
   try {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('User-Agent', userAgent ?? 'unknown');
+    headers.append('X-Forwarded-For', xForwardedFor ?? 'unknown');
+
     // Send the request to Plausible API
     const response = await fetch('https://plausible.io/api/event', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers,
       body: JSON.stringify(plausiblePayload),
     });
 
