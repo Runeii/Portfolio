@@ -1,7 +1,7 @@
-import { Handler } from '@netlify/functions'
+import { type Handler } from '@netlify/functions'
 
 // Netlify serverless function for proxying events to Plausible
-export const handler: Handler = async (event, context) => {
+export const handler: Handler = async (event) => {
   // Extract the request method and body
   const method = event.httpMethod;
 
