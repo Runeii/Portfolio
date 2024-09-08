@@ -56,6 +56,7 @@ export const handler: Handler = async (event) => {
 
     // If the response is not successful, return the error
     if (!response.ok) {
+      console.log('Failed')
       return {
         statusCode: response.status,
         body: JSON.stringify({ error: 'Failed to send event to Plausible' }),
@@ -63,11 +64,14 @@ export const handler: Handler = async (event) => {
     }
 
     // Return a successful response
+    console.log('Success')
     return {
       statusCode: 200,
       body: JSON.stringify({ message: 'Event successfully sent to Plausible' }),
     };
   } catch (error) {
+    console.error('error', error)
+
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Internal Server Error' }),
