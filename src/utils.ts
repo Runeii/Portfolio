@@ -11,8 +11,12 @@ export const logPageView = () =>
 
 export const logClicks = () =>
   document.addEventListener('click', (event) => {
-    const target = event.target as HTMLElement;
-    const url = target.getAttribute('href');
+    const anchor = (event.target as HTMLElement)?.closest('a') as HTMLAnchorElement;
+
+    if (!anchor) {
+      return;
+    }
+    const url = anchor.getAttribute('href');
 
     if (!url) {
       return;
