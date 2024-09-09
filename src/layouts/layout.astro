@@ -1,67 +1,8 @@
 ---
-// Secret Tove page, behind QR code
-
-import Projects from "../components/Projects.astro";
-import type { Project } from "../data/projects";
-
-const works: Project[] = [
-  {
-    title: "The French Hound",
-    description: "A classic of the genre",
-    date: new Date(),
-    link: "/tove/1.jpeg",
-    isDigital: false,
-    isPhysical: true,
-  },
-  {
-    title: "The Cyclist",
-    description: "Something of a basket case",
-    date: new Date(),
-    link: "/tove/2.jpeg",
-    isDigital: false,
-    isPhysical: true,
-  },
-  {
-    title: "Cone and Stick",
-    description: "Double humiliation",
-    date: new Date(),
-    link: "/tove/3.jpeg",
-    isDigital: false,
-    isPhysical: true,
-  },
-  {
-    title: "Office Dog",
-    description: "A classic of the genre",
-    date: new Date(),
-    link: "/tove/4.JPG",
-    isDigital: false,
-    isPhysical: true,
-  },
-  {
-    title: "Shower",
-    description: "Wet and ruffled",
-    date: new Date(),
-    link: "/tove/5.jpeg",
-    isDigital: false,
-    isPhysical: true,
-  },
-  {
-    title: "The Thief",
-    description: "Egg rustling",
-    date: new Date(),
-    link: "/tove/6.jpeg",
-    isDigital: false,
-    isPhysical: true,
-  },
-  {
-    title: "Liquid",
-    description: "Dog not Snake",
-    date: new Date(),
-    link: "/tove/7.jpeg",
-    isDigital: false,
-    isPhysical: true,
-  },
-];
+const nav = [
+  { href: '/', text: 'Work' },
+  { href: '/work-in-progress', text: 'WIP' }
+]
 ---
 
 <html lang="en">
@@ -70,7 +11,7 @@ const works: Project[] = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Tove – Portfolio</title>
+		<title>Andrew Hill – Portfolio</title>
     <script>
       import { logClicks, logPageView } from '../utils.ts'
       logPageView()
@@ -79,14 +20,19 @@ const works: Project[] = [
 	</head>
 	<body>
     <div class="bio">
-      <h1>Tove</h1>
-      <p>Career: Dog</p>
-      <a href="mailto:tove@andrewthomashill.co.uk" class="email">Email</a>
+      <h1>Andrew Thomas Hill</h1>
+      <p>Creative Developer</p>
+      <a href="mailto:contact@andrewthomashill.co.uk">Email</a>
     </div>
-    <div class="header">
-      <img src="/tove/1.jpeg" loading="lazy" />
+    <nav class="nav">
+      {Astro.site}
+      {nav.map(({ href, text }) => (
+        <a href={href} class={href === Astro.url.pathname ? 'isActive' : ''}>{text}</a>
+      ))}
+    </nav>
+    <div class="content">
+      <slot />
     </div>
-    <Projects hasTitle={false} projects={works} />
 	</body>
 </html>
 
@@ -163,12 +109,10 @@ const works: Project[] = [
 
     max-width: 1440px;
     margin: 0 auto;
-  }
 
-  .bio {
-    height: 33vh;
-    padding: 3rem 1rem;
-    font-size: 1.5rem;
+    display: grid;
+    grid-template-rows: 33vh auto;
+    grid-template-columns: max-content auto;
 
     h1, p, a {
       font-weight: inherit;
@@ -177,32 +121,35 @@ const works: Project[] = [
       text-underline-offset: 0.2em;
       color: inherit;
     }
-
-
-    .email {
-      cursor: not-allowed;
-      text-decoration: none;
-
-      &::after {
-        content: "no i am a dog";
-        font-size: 0.75em;
-        font-style: italic;
-        margin-left: 0.5em;
-      }
-    }
   }
 
-  .header {
+  .bio {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    padding: 3rem 1rem;
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    padding: 3rem 1rem;
+    font-size: 1.25rem;
+    text-align: right;
+
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    align-self: start;
+    justify-self: end;
 
-    img {
-      width: 100%;
-      margin: 1rem;
+    a:not(.isActive) {
+      color: rgba(var(--text-color) / 0.7);
+      text-decoration: none;
     }
   }
-  
+
+  .content {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+  }
 </style>
