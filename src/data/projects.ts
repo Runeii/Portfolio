@@ -7,6 +7,7 @@ export type Project = {
   isDigital: boolean;
   isPhysical: boolean;
   isNDAed?: boolean;
+  isWIP?: boolean
 };
 
 type JsonProject = Omit<Project, 'date'> & {
@@ -28,7 +29,8 @@ export const projects: JsonProject[] = [
     link: "https://github.com/runeii/audiovisualizer",
     date: '2024-01-01',
     isDigital: true,
-    isPhysical: false
+    isPhysical: false,
+    isWIP: true
   },
   {
     title: "R3F Touch Controller",
@@ -82,8 +84,8 @@ export const projects: JsonProject[] = [
     isPhysical: false
   },
   {
-    title: "BreathLab",
-    description: "Nike (Paris)",
+    title: "Nike BreathLab",
+    description: "Paris",
     link: 'https://random.studio/projects/a-sensorial-store-takeover-for-nike-house-of-innovation',
     date: '2024-01-01',
     isDigital: false,
@@ -98,8 +100,8 @@ export const projects: JsonProject[] = [
     isPhysical: true
   },
   {
-    title: "Bridal Forest",
-    description: "Boucheron (Tokyo)",
+    title: "Boucheron Bridal Forest",
+    description: "Tokyo",
     link: "https://random.studio/projects/a-bridal-forest-for-boucheron",
     date: '2023-01-01',
     isDigital: false,
@@ -146,8 +148,8 @@ export const projects: JsonProject[] = [
     isPhysical: false
   },
   {
-    title: "Tommy Hillfiger",
-    description: "Kid's Machine",
+    title: "Kid's Machine",
+    description: "Tommy Hilfiger stores",
     link: "https://random.studio/projects/interactive-retail-fixture-for-tommy-hilfiger",
     date: '2019-01-01',
     isDigital: false,
