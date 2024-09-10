@@ -26,9 +26,9 @@ const nav = [
     </div>
     <nav class="nav">
       {Astro.site}
-      {nav.map(({ href, text }) => (
+      {/*nav.map(({ href, text }) => (
         <a href={href} class={href === Astro.url.pathname ? 'isActive' : ''}>{text}</a>
-      ))}
+      ))*/}
     </nav>
     <div class="content">
       <slot />
