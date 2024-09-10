@@ -16,14 +16,6 @@ type JsonProject = Omit<Project, 'date'> & {
 
 export const projects: JsonProject[] = [
   {
-    title: 'High Pertinent',
-    description: 'The corporation that runs the future',
-    link: 'https://github.com/runeii/highpertinent',
-    date: '2024-01-01',
-    isDigital: true,
-    isPhysical: false
-  },
-  {
     title: "Wipeout Music Visualizer",
     description: "Recontextualising the 90s PSX classic",
     link: "https://github.com/runeii/audiovisualizer",
@@ -42,10 +34,18 @@ export const projects: JsonProject[] = [
   },
   {
     title: "Random Studio",
-    description: "Website for a design studio",
+    description: "Development department lead",
     link: "https://random.studio/",
     date: '2024-01-01',
     niceDate: '2020-2024',
+    isDigital: true,
+    isPhysical: false
+  },
+  {
+    title: 'High Pertinent',
+    description: 'The corporation that runs the future',
+    link: 'https://github.com/runeii/highpertinent',
+    date: '2024-01-01',
     isDigital: true,
     isPhysical: false
   },
