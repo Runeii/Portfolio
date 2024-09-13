@@ -33,8 +33,17 @@ export const projects: JsonProject[] = [
     isPhysical: false
   },
   {
+    title: "Portfolio – Pt.2",
+    description: "Further complications",
+    link: "https://github.com/runeii/portfolio",
+    date: '2024-01-01',
+    isDigital: true,
+    isPhysical: false,
+    isWIP: true
+  },
+  {
     title: "Random Studio",
-    description: "Development department lead",
+    description: "Dev lead",
     link: "https://random.studio/",
     date: '2024-01-01',
     niceDate: '2020-2024',

@@ -2,10 +2,16 @@
 import Layout from '../layouts/layout.astro';
 import Projects from '../components/Projects.astro';
 import { type Project, projects } from '../data/projects';
+import { type Role, roles } from '../data/roles';
 
 const sortedProjects = projects.map(project => ({
   ...project,
   date: new Date(project.date),
+}) as Project).sort((a,b) => b.date.getTime() - a.date.getTime());
+
+const sortedRoles = roles.map(role => ({
+  ...role,
+  date: new Date(role.date),
 }) as Project).sort((a,b) => b.date.getTime() - a.date.getTime());
 
 const digital = sortedProjects.filter((project) => project.isDigital)
@@ -14,6 +20,8 @@ const physical = sortedProjects.filter((project) => project.isPhysical);
 
 ---
 <Layout>
-  <Projects isDigital projects={digital} />
-  <Projects projects={physical} />
+  <Projects heading="" projects={[sortedRoles[0]]} />
+  <Projects heading="Previously at" projects={sortedRoles.slice(1)} />
+  <Projects heading="Often digital" projects={digital} />
+  <Projects heading="Somtimes physical" projects={physical} />
 </Layout>

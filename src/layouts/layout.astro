@@ -23,6 +23,7 @@ const nav = [
       <h1>Andrew Thomas Hill</h1>
       <p>Creative Developer</p>
       <a href="mailto:contact@andrewthomashill.co.uk">Email</a>
+      <a href="https://www.linkedin.com/in/andrew-hill-31b8471a6/">Linkedin</a>
     </div>
     <nav class="nav">
       {Astro.site}
@@ -128,6 +129,14 @@ const nav = [
     grid-column: 1 / 2;
     padding: 3rem 1rem;
     font-size: 1.5rem;
+
+    a {
+      margin-right: 0.5em;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 
   .nav {

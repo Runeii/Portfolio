@@ -1,20 +1,21 @@
 ---
 import { type Project } from '../data/projects';
+import type { Role } from '../data/roles';
 
 interface Props {
-  isDigital?: boolean;
+  heading: string;
   hasTitle?: boolean;
-  projects: Project[];
+  projects: Project[] | Role[];
 }
 
-const { isDigital, hasTitle, projects } = Astro.props;
+const { heading, hasTitle, projects } = Astro.props;
 
 ---
 
 <main class="projects">
-  {hasTitle !== false && <h2 class="heading">{isDigital ? 'Often digital' : 'Sometimes physical'}</h2>}
-  {projects.filter(project => project.link || project.isNDAed).map((project) => {
-    const className = `project ${project.isNDAed ? 'isNDAed' : ''}`;
+  {hasTitle !== false && <h2 class="heading">{heading}</h2>}
+  {projects.filter(project => project.link || (project as Project).isNDAed).map((project) => {
+    const className = `project ${(project as Project).isNDAed ? 'isNDAed' : ''} ${(project as Project).isWIP ? 'isWIP' : ''}`;
 
     return project.link ? (
       <a
@@ -81,23 +82,33 @@ const { isDigital, hasTitle, projects } = Astro.props;
   font-size: 1.5rem;
   cursor: pointer;
 
+  p {
+    margin: 0;
+
+    &::after {
+        font-size: 0.75em;
+        font-style: italic;
+        margin-left: 0.5em;
+    }
+  }
+
   &.isNDAed {
     cursor: not-allowed;
 
     p:first-child::after {
       content: "NDAed";
-      font-size: 0.75em;
-      font-style: italic;
-      margin-left: 0.5em;
+    }
+  }
+
+  &.isWIP {
+
+    p:first-child::after {
+      content: "WIP";
     }
   }
 
   &:hover {
     --opacity: 1;
-  }
-
-  p {
-    margin: 0;
   }
 
   .title {
