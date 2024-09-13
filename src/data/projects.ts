@@ -43,7 +43,7 @@ export const projects: JsonProject[] = [
   },
   {
     title: 'High Pertinent',
-    description: 'The corporation that runs the future',
+    description: 'An unimportant holding page',
     link: 'https://github.com/runeii/highpertinent',
     date: '2024-01-01',
     isDigital: true,
