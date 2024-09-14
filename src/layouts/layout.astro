@@ -8,6 +8,8 @@ const nav = [
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+    <link rel="preload" href="/fonts/Acumin-RPro.woff" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Acumin-ItPro.woff" as="font" type="font/woff2" crossorigin>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
@@ -43,6 +45,7 @@ const nav = [
     font-style: normal;
     font-weight: normal;
     src: local('Acumin Pro'), url('/fonts/Acumin-RPro.woff') format('woff');
+    font-display: swap;
   }
 
   @font-face {
@@ -50,6 +53,7 @@ const nav = [
     font-style: italic;
     font-weight: normal;
     src: local('Acumin Pro Italic'), url('/fonts/Acumin-ItPro.woff') format('woff');
+    font-display: swap;
   }
 
   * {
@@ -100,9 +104,8 @@ const nav = [
     font-weight: 400;
     line-height: 1.4;
     letter-spacing: -0.0125em;
-    -webkit-hyphenate-character: "-";
     text-rendering: optimizeLegibility;
-    font-family: "Acumin Pro", Papyrus, sans-serif;
+    font-family: "Acumin Pro", Arial, sans-serif;
     font-size: 62.5%;
 
     background-color: rgba(var(--background-color) / 1);
