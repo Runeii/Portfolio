@@ -3,17 +3,16 @@ import { type Project } from '../data/projects';
 import type { Role } from '../data/roles';
 
 interface Props {
-  heading: string;
-  hasTitle?: boolean;
+  heading?: string;
   projects: Project[] | Role[];
 }
 
-const { heading, hasTitle, projects } = Astro.props;
+const { heading, projects } = Astro.props;
 
 ---
 
 <main class="projects">
-  {hasTitle !== false && <h2 class="heading">{heading}</h2>}
+  {heading && <h2 class="heading">{heading}</h2>}
   {projects.filter(project => project.link || (project as Project).isNDAed).map((project) => {
     const className = `project ${(project as Project).isNDAed ? 'isNDAed' : ''} ${(project as Project).isWIP ? 'isWIP' : ''}`;
 
