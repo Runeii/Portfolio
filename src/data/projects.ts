@@ -95,6 +95,7 @@ export const projects: JsonProject[] = [
     description: "Us By Night / Handpicked Festival",
     link: "https://random.studio/projects/an-interactive-spatial-experience-let-s-pollinate",
     date: '2024-10-01',
+    niceDate: '2024-2025',
     isDigital: false,
     isPhysical: true
   },
