@@ -124,13 +124,13 @@ export const projects: JsonProject[] = [
   },
   {
     title: "Store of the Future",
-    description: "",
-    link: undefined,
+    description: "Scaling an interactive retail experience from one store to global",
+    link: 'https://fashionunited.uk/news/retail/the-store-of-the-future-inside-tommy-hilfiger-s-amsterdam-store/2018120740412',
     date: '2024-01-01',
     niceDate: '2019-2024',
-    isNDAed: true,
+    isNDAed: false,
     isDigital: true,
-    isPhysical: false
+    isPhysical: true
   },
   {
     title: "Nike BreathLab",
