@@ -8,6 +8,7 @@ export type Project = {
   isPhysical: boolean;
   isNDAed?: boolean;
   isWIP?: boolean
+  isRedacted?: boolean
 };
 
 type JsonProject = Omit<Project, 'date'> & {
@@ -15,6 +16,46 @@ type JsonProject = Omit<Project, 'date'> & {
 };
 
 export const projects: JsonProject[] = [
+  {
+    title: "Goodison.Memorial",
+    description: "Installation celebrating the history of Everton FC",
+    link: 'https://goodison.memorial',
+    date: '2025-06-01',
+    isDigital: true,
+    isPhysical: false,
+    isWIP: true,
+    isRedacted: false
+  },
+  {
+    title: "Hyundai IONIQ",
+    description: "Award winning LLM based storytelling",
+    link: 'https://www.hyundai.news/eu/articles/press-releases/cannes-lions-2025-night-fishing-tree-correspondents.html',
+    date: '2025-07-23',
+    isDigital: true,
+    isPhysical: false,
+    isWIP: false,
+    isRedacted: false
+  },
+  {
+    title: "Teleport.ing",
+    description: "Realtime multiplayer web browsing",
+    link: undefined,
+    date: '2024-07-31',
+    niceDate: '2024-',
+    isDigital: true,
+    isPhysical: false,
+    isWIP: false,
+    isRedacted: false
+  },
+  {
+    title: "FF8 GL",
+    description: "A WIP experiment in WebGL gaming",
+    link: "https://github.com/runeii/ff8",
+    date: '2025-01-01',
+    isDigital: true,
+    isPhysical: false,
+    isWIP: true
+  },
   {
     title: "Wipeout Music Visualizer",
     description: "Recontextualising the 90s PSX classic",
@@ -33,15 +74,6 @@ export const projects: JsonProject[] = [
     isPhysical: false
   },
   {
-    title: "Portfolio – Pt.2",
-    description: "Further complications",
-    link: "https://github.com/runeii/portfolio",
-    date: '2024-01-01',
-    isDigital: true,
-    isPhysical: false,
-    isWIP: true
-  },
-  {
     title: "Random Studio",
     description: "Dev lead",
     link: "https://random.studio/",
@@ -57,6 +89,14 @@ export const projects: JsonProject[] = [
     date: '2024-01-01',
     isDigital: true,
     isPhysical: false
+  },
+  {
+    title: "Let's Pollinate",
+    description: "Us By Night / Handpicked Festival",
+    link: "https://random.studio/projects/an-interactive-spatial-experience-let-s-pollinate",
+    date: '2024-10-01',
+    isDigital: false,
+    isPhysical: true
   },
   {
     title: "Living Entrance",

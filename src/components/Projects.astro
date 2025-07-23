@@ -14,7 +14,7 @@ const { heading, projects } = Astro.props;
 <main class="projects">
   {heading && <h2 class="heading">{heading}</h2>}
   {projects.filter(project => project.link || (project as Project).isNDAed).map((project) => {
-    const className = `project ${(project as Project).isNDAed ? 'isNDAed' : ''} ${(project as Project).isWIP ? 'isWIP' : ''}`;
+    const className = `project ${(project as Project).isNDAed ? 'isNDAed' : ''} ${(project as Project).isRedacted ? 'isRedacted' : ''} ${(project as Project).isWIP ? 'isWIP' : ''}`;
 
     return project.link ? (
       <a
@@ -84,6 +84,10 @@ const { heading, projects } = Astro.props;
   p {
     margin: 0;
 
+    &::before {
+      font-style: italic;
+    }
+
     &::after {
         font-size: 0.75em;
         font-style: italic;
@@ -99,8 +103,13 @@ const { heading, projects } = Astro.props;
     }
   }
 
-  &.isWIP {
+  &.isRedacted {
+    p:first-child::before {
+      content: "Redacted";
+    }
+  }
 
+  &.isWIP {
     p:first-child::after {
       content: "WIP";
     }
